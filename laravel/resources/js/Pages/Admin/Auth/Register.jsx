@@ -22,7 +22,7 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('admin.register'));
+        post(route('admin.register.store'));
     };
 
     return (
@@ -86,7 +86,7 @@ export default function Register() {
 
                 <div className="flex items-center justify-end mt-4">
                 <Link
-                        href="/admin/login"
+                        href={route('admin.login')}
                         className="ms-4 inline-flex items-center px-4 py-2 underline decoration-solid"
                     >
                         Iniciar sesión

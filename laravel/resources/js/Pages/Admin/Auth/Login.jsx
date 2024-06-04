@@ -5,7 +5,7 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { UserIcon, LockClosedIcon } from '@heroicons/react/24/solid'
+import { UserIcon, LockClosedIcon } from '@heroicons/react/24/solid';
 
 import { Head, Link, useForm } from '@inertiajs/react';
 
@@ -25,7 +25,7 @@ export default function Login({ status, canResetPassword }) {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('login'));
+        post(route('admin.login.store'));
     };
 
     return (
@@ -88,13 +88,13 @@ export default function Login({ status, canResetPassword }) {
 
                 <div className="flex items-center justify-end mt-4">
                      
-                    <Link
-                        href="/admin/register"
+                    {/* <Link
+                        href={route('admin.register')}
                         className="ms-4 inline-flex items-center px-4 py-2 underline decoration-solid"
                     >
                         Registrar
                     </Link>
-
+ */}
                     <PrimaryButton className="ms-4 inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150" disabled={processing}>
                         Iniciar Sesión
                     </PrimaryButton>

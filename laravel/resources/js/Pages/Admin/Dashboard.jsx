@@ -4,7 +4,7 @@ import { Head } from '@inertiajs/react';
 export default function Dashboard({ auth }) {
     return (
         <AuthenticatedLayout
-            admin={auth.admin}
+            user={auth.user}
             header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Administrador</h2>}
         >
             <Head title="Dashboard" />

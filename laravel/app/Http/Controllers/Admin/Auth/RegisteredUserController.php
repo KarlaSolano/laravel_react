@@ -26,7 +26,7 @@ class RegisteredUserController extends Controller
     {
         $request->validate([
             'email' => 'nullable|string|lowercase|email|max:255',
-            'name' => 'required|string|max:255|unique:'.Admin::class,
+            'name' => 'required|string|max:255|unique:admins,name',
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ]);
 
@@ -40,6 +40,6 @@ class RegisteredUserController extends Controller
 
         Auth::guard('admin')->login($admin);
 
-        return redirect(route('admin.dashboard'));
+        return redirect()->route('admin.dashboard');
     }
 }

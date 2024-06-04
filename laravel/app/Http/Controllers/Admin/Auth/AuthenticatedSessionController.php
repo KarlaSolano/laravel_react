@@ -33,7 +33,7 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.dashboard', absolute: false));
+        return redirect()->intended(route('admin.dashboard'));
     }
 
     /**
@@ -47,6 +47,15 @@ class AuthenticatedSessionController extends Controller
 
         $request->session()->regenerateToken();
 
-        return redirect('admin.login');
+        return redirect()->route('admin.login');
     }
+    
+    public function dashboard(){
+        return Inertia::render('Admin/Dashboard', [
+            'auth' => [
+                'user' => Auth::guard('admin')->user(),
+            ],
+        ]);
+    }
+
 }
