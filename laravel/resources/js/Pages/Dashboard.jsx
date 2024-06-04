@@ -76,7 +76,7 @@ export default function Dashboard({ auth }) {
               <button
                     type="button"
                     onClick={handform}
-                    className="ml-2 px-4 py-2 mb-4 bg-green-500 text-white rounded"
+                    className="ml-2 px-4 py-2 mb-4 bg-blue-500 text-white rounded"
                   >
                 
                     {showForm ? 'Ocultar Formulario' : 'Agregar Formulario'}
@@ -84,7 +84,7 @@ export default function Dashboard({ auth }) {
                   {showForm && (
                 <div id='Form'>
                   <div className='flex flex-wrap'>
-                    <div id="field" className="mb-2 border-4 rounded-md p-6 border-sky-500 w-full max-w-lg shadow-lg shadow-cyan-500/50 max-h-52">
+                    <div id="field" className="mb-2 border-4 rounded-md p-6 border-gray-500 w-full max-w-xl shadow-lg shadow-cyan-500/50 max-h-52">
                       <div className="max-h-40 overflow-auto focus:overscroll-contain">
                         {fields.map(field => (
                           <div key={field.id}>
@@ -147,7 +147,7 @@ export default function Dashboard({ auth }) {
                   <button
                     type="button"
                     onClick={handleSubmit}
-                    className="ml-2 px-4 py-2 bg-green-500 text-white rounded"
+                    className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
                   >
                     Guardar Formulario
                   </button>
@@ -161,11 +161,11 @@ export default function Dashboard({ auth }) {
                 <div className="max-h-lvh overflow-auto focus:overscroll-contain">
                 <ul className='grid grid-cols-4 gap-4 min-[320px]:text-center max-[768px]:grid-cols-1'>
                     {formularios.map((formulario, index) => (
-                      <li className='border-4 rounded-md p-6 border-y-sky-500' key={index}>
-                        <h2 className="text-xl font-medium text-gray-900 text-center">Formulario {formulario.id}</h2>
+                      <li className='group block rounded-lg p-6 bg-blue-50 ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-blue-400 hover:ring-sky-500' key={index}>
+                        <h2 className="h-6 w-6 stroke-sky-500 group-hover:text-white font-semibold">Formulario {formulario.id}</h2>
                         <div className='text-center py-2'>
-                          <p className='text-blue-950 texto-lg'>Fecha de creación:</p>{formulario.fecha}<br></br>
-                          <p className='text-blue-950 texto-lg '>Contenido</p>
+                          <p className='text-blue-950 texto-lg text-slate-500  group-hover:text-white'>Fecha de creación:</p>{formulario.fecha}<br></br>
+                          <p className='text-blue-950 texto-lg text-slate-500 group-hover:text-white'>Contenido</p>
                           {formulario.actividades ? (
                             JSON.parse(formulario.actividades).map((actividad, index) => (
                               <p key={index}>
