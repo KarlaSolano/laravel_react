@@ -44,7 +44,7 @@
     <li> Creae archivo .env </li>
     <li> Crear DB formularios </li>
     <li> Ejecutar php artisan migrate --seed </li>
-    <li> Administrador deacuerdo al seeder: Admin, password</li>li>
+    <li> Administrador deacuerdo al seeder: Admin, password</li>
     <li> Ejecutar React: npm run dev </li>
     <li> Ejecutar Artisan: php artisan serve </li>
     
