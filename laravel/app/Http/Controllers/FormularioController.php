@@ -13,6 +13,13 @@ class FormularioController extends Controller
 {
     //Método para enlistar todos los formularios
     public function index(){
+        $user_id = auth()->id();
+        $formularios =  Formulario::where('user_id', $user_id)->latest()->get();
+        return response()->json($formularios);
+    }
+
+    //Método para enlistar todos los formularios
+    public function list(){
         $formularios = Formulario::latest()->get();
         return response()->json($formularios);
     }

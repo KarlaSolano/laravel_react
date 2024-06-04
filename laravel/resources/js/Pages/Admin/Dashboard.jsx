@@ -14,7 +14,7 @@ export default function Dashboard({ auth }) {
 
   const cargarFormularios = async () => {
     try {
-      const response = await axios.get('/formulario');
+      const response = await axios.get('/formulario/list');
       setFormularios(response.data);
     } catch (error) {
       setError('Error al cargar los formularios');
@@ -43,29 +43,29 @@ export default function Dashboard({ auth }) {
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div className="p-6 text-gray-900">
-              <h3 className="text-2xl font-medium text-gray-900">Lista de Formularios</h3>
-              <div className="py-4">
-                <ul className='grid grid-cols-4 gap-4 min-[320px]:text-center max-[768px]:grid-cols-1'>
-                  {formularios.map((formulario, index) => (
-                    <li className='border-4 rounded-md p-6 border-y-sky-500' key={index}>
-                      <h2 className="text-xl font-medium text-gray-900 text-center">Formulario {formulario.id}</h2>
-                      <div className='text-center py-2'>
-                        <p className='text-blue-950 texto-lg'>Fecha de creación:</p>{formulario.fecha}<br />
-                        <p className='text-blue-950 texto-lg '>Contenido</p>
-                        {formulario.actividades ? (
-                          JSON.parse(formulario.actividades).map((actividad, index) => (
-                            <p key={index}>
-                              <strong>{actividad.label}:</strong> {actividad.value}
-                            </p>
-                          ))
-                        ) : (
-                          <p>No hay actividades</p>
-                        )}
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              <h3 className="text-2xl font-medium text-gray-900">Listado de Formularios</h3>
+                <div className="py-4 max-h-lvh overflow-auto focus:overscroll-contain" >
+                    <ul className='grid grid-cols-4 gap-4 min-[320px]:text-center max-[768px]:grid-cols-1'>
+                    {formularios.map((formulario, index) => (
+                        <li className='border-4 rounded-md p-6 border-y-sky-500' key={index}>
+                        <h2 className="text-xl font-medium text-gray-900 text-center">Formulario {formulario.id}</h2>
+                        <div className='text-center py-2'>
+                            <p className='text-blue-950 texto-lg'>Fecha de creación:</p>{formulario.fecha}<br />
+                            <p className='text-blue-950 texto-lg '>Contenido</p>
+                            {formulario.actividades ? (
+                            JSON.parse(formulario.actividades).map((actividad, index) => (
+                                <p key={index}>
+                                <strong>{actividad.label}:</strong> {actividad.value}
+                                </p>
+                            ))
+                            ) : (
+                            <p>No hay actividades</p>
+                            )}
+                        </div>
+                        </li>
+                    ))}
+                    </ul>
+                </div>
             </div>
           </div>
         </div>

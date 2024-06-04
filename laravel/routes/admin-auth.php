@@ -36,5 +36,6 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     //Añadimos Rutas para formularios
     Route::post('/formulario', [FormularioController::class, 'store']);
     Route::get('/formulario', [FormularioController::class, 'index'])->name('formulario.index');
+    Route::get('/formulario/list', [FormularioController::class, 'list'])->name('formulario.list');
 
 require __DIR__.'/auth.php';
