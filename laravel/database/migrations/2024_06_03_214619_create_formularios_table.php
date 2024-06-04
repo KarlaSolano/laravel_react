@@ -15,7 +15,10 @@ return new class extends Migration
             $table->id();
             $table->date('fecha');
             $table->json('actividades');
+            $table->biginteger('user_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users');
         });
     }
 

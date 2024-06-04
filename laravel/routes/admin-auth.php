@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\Auth\AuthenticatedSessionController;
 use App\Http\Controllers\Admin\Auth\RegisteredUserController;
 use App\Http\Controllers\Admin\ProfileController;
+use App\Http\Controllers\FormularioController;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
@@ -31,3 +32,9 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
     ->name('logout');
 });
+
+    //Añadimos Rutas para formularios
+    Route::post('/formulario', [FormularioController::class, 'store']);
+    Route::get('/formulario', [FormularioController::class, 'index'])->name('formulario.index');
+
+require __DIR__.'/auth.php';
