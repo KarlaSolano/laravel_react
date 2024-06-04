@@ -22,13 +22,15 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('register'));
+        post(route('admin.register'));
     };
 
     return (
         <GuestLayout>
-            <Head title="Registrar" />
-
+            <Head title="Registrar Admin" />
+            <p className='text-2xl text-center'>
+            {' '}Registrar Admin
+            </p>
             <form onSubmit={submit}>
                 <div>
                     <InputLabel htmlFor="name" value="Nombre" />
@@ -83,11 +85,11 @@ export default function Register() {
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
-                    <Link
-                        href={route('login')}
+                <Link
+                        href="/admin/login"
                         className="ms-4 inline-flex items-center px-4 py-2 underline decoration-solid"
                     >
-                        Iniciar Sesión
+                        Iniciar sesión
                     </Link>
 
                     <PrimaryButton className="ms-4 inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150" disabled={processing}>

@@ -4,11 +4,12 @@ import InputError from '@/Components/InputError';
 import InputLabel from '@/Components/InputLabel';
 import PrimaryButton from '@/Components/PrimaryButton';
 import TextInput from '@/Components/TextInput';
-import { Head, Link, useForm } from '@inertiajs/react';
+import { Head, useForm } from '@inertiajs/react';
 
-export default function Register() {
+export default function ResetPassword({ token, email }) {
     const { data, setData, post, processing, errors, reset } = useForm({
-        name: '',
+        token: token,
+        email: email,
         password: '',
         password_confirmation: '',
     });
@@ -22,31 +23,31 @@ export default function Register() {
     const submit = (e) => {
         e.preventDefault();
 
-        post(route('register'));
+        post(route('password.store'));
     };
 
     return (
         <GuestLayout>
-            <Head title="Registrar" />
-
+            <Head title="Reset Password" />
+            <p className='text-2xl text-center'>
+            {' '}Recuperar Contraseña Admin
+            </p>
             <form onSubmit={submit}>
                 <div>
-                    <InputLabel htmlFor="name" value="Nombre" />
+                    <InputLabel htmlFor="email" value="Email" />
 
                     <TextInput
-                        id="name"
-                        name="name"
-                        value={data.name}
+                        id="email"
+                        type="email"
+                        name="email"
+                        value={data.email}
                         className="mt-1 block w-full"
-                        autoComplete="name"
-                        isFocused={true}
-                        onChange={(e) => setData('name', e.target.value)}
-                        required
+                        autoComplete="username"
+                        onChange={(e) => setData('email', e.target.value)}
                     />
 
-                    <InputError message={errors.name} className="mt-2" />
+                    <InputError message={errors.email} className="mt-2" />
                 </div>
-
 
                 <div className="mt-4">
                     <InputLabel htmlFor="password" value="Password" />
@@ -58,8 +59,8 @@ export default function Register() {
                         value={data.password}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
+                        isFocused={true}
                         onChange={(e) => setData('password', e.target.value)}
-                        required
                     />
 
                     <InputError message={errors.password} className="mt-2" />
@@ -69,29 +70,21 @@ export default function Register() {
                     <InputLabel htmlFor="password_confirmation" value="Confirm Password" />
 
                     <TextInput
-                        id="password_confirmation"
                         type="password"
+                        id="password_confirmation"
                         name="password_confirmation"
                         value={data.password_confirmation}
                         className="mt-1 block w-full"
                         autoComplete="new-password"
                         onChange={(e) => setData('password_confirmation', e.target.value)}
-                        required
                     />
 
                     <InputError message={errors.password_confirmation} className="mt-2" />
                 </div>
 
                 <div className="flex items-center justify-end mt-4">
-                    <Link
-                        href={route('login')}
-                        className="ms-4 inline-flex items-center px-4 py-2 underline decoration-solid"
-                    >
-                        Iniciar Sesión
-                    </Link>
-
-                    <PrimaryButton className="ms-4 inline-flex items-center px-4 py-2 bg-gray-500 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-gray-600 active:bg-gray-700 focus:outline-none focus:border-gray-700 focus:ring ring-gray-300 disabled:opacity-25 transition ease-in-out duration-150" disabled={processing}>
-                        Registrar
+                    <PrimaryButton className="ms-4" disabled={processing}>
+                        Reset Password
                     </PrimaryButton>
                 </div>
             </form>

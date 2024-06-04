@@ -18,12 +18,12 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                     
                     <header>
                     <nav className="-mx-3 flex flex-1 justify-end">
-                                {auth.user ? (
+                                {auth.web ? (
                                     <Link
                                         href={route('dashboard')}
                                         className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
                                     >
-                                        Dashboard
+                                        Dashboard User
                                     </Link>
                                 ) : (
                                     <>
@@ -31,12 +31,34 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                                             href={route('login')}
                                             className="ms-4 inline-flex items-center px-4 py-2 bg-blue-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-400 active:bg-blue-400 focus:outline-none focus:border-blue-400 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150"
                                         >
-                                            INICIAR SESIÓN
+                                            INICIAR SESIÓN USER
                                         </Link>
                                         
                                     </>
                                 )}
-                            </nav>
+
+                                {auth.admin ? (
+                                    
+                                    <Link
+                                        href="/admin/dashboard"
+                                        className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-white dark:hover:text-white/80 dark:focus-visible:ring-white"
+                                    >
+                                       Dashboard Admin
+                                    </Link>
+                                ) : (
+                                    <>                                      
+
+                                        <Link
+                                        href="/admin/login"
+                                        className="ms-4 inline-flex items-center px-4 py-2 bg-blue-300 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-blue-400 active:bg-blue-400 focus:outline-none focus:border-blue-400 focus:ring ring-blue-300 disabled:opacity-25 transition ease-in-out duration-150"
+                                    >
+                                        INICIAR SESIÓN ADMIN
+                                    </Link>
+                                        
+                                    </>
+                                )}
+                             
+                    </nav>
                     </header>
                         <main className="mt-1">
                             <div className="grid lg:grid-cols-1 p-6 shadow-[0px_14px_34px_0px_rgba(0,0,0,0.08)] ring-1 ring-white/[0.05] transition duration-300   focus:outline-none focus-visible:ring-[#FF2D20] md:row-span-3 lg:p-10 lg:pb-10 dark:bg-zinc-900 dark:ring-zinc-800 dark:hover:text-white/70 dark:hover:ring-zinc-700 dark:focus-visible:ring-[#FF2D20]">
