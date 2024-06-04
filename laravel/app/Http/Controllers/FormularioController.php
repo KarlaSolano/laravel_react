@@ -67,4 +67,20 @@ class FormularioController extends Controller
         }
     }
 
+    // Método de búsqueda para filtrar formularios por fecha y usuario
+    public function search(Request $request){
+        $query = Formulario::query();
+
+        if ($request->has('fecha')) {
+            $query->whereDate('fecha', $request->input('fecha'));
+        }
+
+        if ($request->has('user_id')) {
+            $query->where('user_id', $request->input('user_id'));
+        }
+
+        $formularios = $query->latest()->get();
+        return response()->json($formularios);
+    }
+
 }
