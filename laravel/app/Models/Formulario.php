@@ -13,4 +13,8 @@ class Formulario extends Model
         'fecha',
         'actividades',
     ];
+
+    protected $casts = [
+        'actividades' => 'array',
+    ];
 }

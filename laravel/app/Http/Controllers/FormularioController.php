@@ -25,58 +25,37 @@ class FormularioController extends Controller
     public function store(Request $request){
         $validated = $request->validate([
             'actividades' => 'required|array',
-            'actividades.*' => 'required|string',
+            'actividades.*.label' => 'required|string',
+            'actividades.*.value' => 'required|string',
         ]);
 
-          // Logging para depuración
+        // Logging para depuración
         Log::info('Datos recibidos:', $validated);
 
         try {
             $date = Carbon::now();  
             $fecha = $date->format('Y-m-d');            
-            $actividades = $request->actividades;
-    
+            $actividades = $request->input('actividades');
+
+            // Almacenamiento de archivos
+            foreach ($actividades as &$actividad) {
+                if (isset($actividad['type']) && $actividad['type'] === 'file') {
+                    $archivo = $actividad['value'];
+                    $archivoNombre = $archivo->getClientOriginalName();
+                    $archivo->storeAs('archivos', $archivoNombre);
+                    $actividad['value'] = $archivoNombre;
+                }
+            }
+
             $form = new Formulario();
             $form->fecha = $fecha;
             $form->actividades = json_encode($actividades);
             $form->save();
-    
+
             return redirect()->route('formulario.index')->with('success', 'Formulario creado exitosamente');
         } catch (\Exception $e) {
             \Log::error('Error al guardar el Formulario:', ['error' => $e->getMessage()]);
             return response()->json(['error' => 'Ocurrió un error al crear el formulario'], 500);
-        }
-    }
-
-    //Método para actualizar el formulario
-    public function edit(Request $request, $id){
-        $validated = $request->validate([
-            'actividades' => 'required|array',
-            'actividades.*' => 'required|string',
-        ]);
-
-        try {
-            $form = Formulario::findOrFail($id);
-            $form->actividades = $validated['actividades'];
-            $form->save();
-
-            return redirect()->route('formulario.index')->with('success', 'Formulario actualizado exitosamente');
-        } catch (\Exception $e) {
-            Log::error('Error al actualizar el formulario:', ['error' => $e->getMessage()]);
-            return response()->json(['message' => 'Error al actualizar el formulario'], 500);
-        }
-    }
-
-    //Método para eliminar el formulario
-    public function destroy($id){
-        try {
-            $form = Formulario::findOrFail($id);
-            $form->delete();
-
-            return redirect()->route('formulario.index')->with('success', 'Formulario eliminado exitosamente');
-        } catch (\Exception $e) {
-            Log::error('Error al eliminar el formulario:', ['error' => $e->getMessage()]);
-            return response()->json(['message' => 'Error al eliminar el formulario'], 500);
         }
     }
 
