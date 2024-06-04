@@ -44,6 +44,7 @@ export default function Dashboard({ auth }) {
       
       // Agregar el nuevo formulario a la lista
       setFormularios([...formularios, response.data]);
+      setShowForm(false);
       cargarFormularios();
     } catch (error) {
       setError('Error al enviar el formulario');
@@ -77,49 +78,52 @@ export default function Dashboard({ auth }) {
                     onClick={handform}
                     className="ml-2 px-4 py-2 mb-4 bg-green-500 text-white rounded"
                   >
+                
                     {showForm ? 'Ocultar Formulario' : 'Agregar Formulario'}
                   </button>
                   {showForm && (
                 <div id='Form'>
                   <div className='flex flex-wrap'>
-                    <div id="field" className="mb-2 border-4 rounded-md p-6 border-sky-500 w-full max-w-lg shadow-lg shadow-cyan-500/50">
-                      {fields.map(field => (
-                        <div key={field.id} className="">
-                          <div className='flex flex-wrap p-2'>
-                            <label htmlFor={`name-${field.id}`}>
-                              <input
-                                type="text"
-                                value={field.label}
-                                onChange={(e) => handleFieldChange(field.id, 'label', e.target.value)}
-                                className="mr-2 p-1 border rounded"
-                                placeholder="Nombre de la etiqueta"
-                              />
-                            </label>
-                            {field.type === 'text' ? (
-                              <input
-                                type="text"
-                                value={field.value}
-                                onChange={(e) => handleFieldChange(field.id, 'value', e.target.value)}
-                                className="mr-2 p-1 border rounded"
-                                placeholder="Valor"
-                              />
-                            ) : (
-                              <input
-                                type="file"
-                                onChange={(e) => handleFieldChange(field.id, 'value', e.target.files[0])}
-                                className="mr-2 p-1 border rounded"
-                              />
-                            )}
-                            <button
-                              type="button"
-                              onClick={() => removeField(field.id)}
-                              className="px-2 py-1 bg-red-500 text-white rounded"
-                            >
-                              Borrar
-                            </button>
+                    <div id="field" className="mb-2 border-4 rounded-md p-6 border-sky-500 w-full max-w-lg shadow-lg shadow-cyan-500/50 max-h-52">
+                      <div className="max-h-40 overflow-auto focus:overscroll-contain">
+                        {fields.map(field => (
+                          <div key={field.id}>
+                            <div className='flex flex-wrap p-2'>
+                              <label htmlFor={`name-${field.id}`}>
+                                <input
+                                  type="text"
+                                  value={field.label}
+                                  onChange={(e) => handleFieldChange(field.id, 'label', e.target.value)}
+                                  className="mr-2 p-1 border rounded"
+                                  placeholder="Nombre de la etiqueta"
+                                />
+                              </label>
+                              {field.type === 'text' ? (
+                                <input
+                                  type="text"
+                                  value={field.value}
+                                  onChange={(e) => handleFieldChange(field.id, 'value', e.target.value)}
+                                  className="mr-2 p-1 border rounded"
+                                  placeholder="Valor"
+                                />
+                              ) : (
+                                <input
+                                  type="file"
+                                  onChange={(e) => handleFieldChange(field.id, 'value', e.target.files[0])}
+                                  className="mr-2 p-1 border rounded"
+                                />
+                              )}
+                              <button
+                                type="button"
+                                onClick={() => removeField(field.id)}
+                                className="px-2 py-1 bg-red-500 text-white rounded"
+                              >
+                                Borrar
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                      ))}
+                        ))}
+                      </div>  
                     </div>
                     <div>
                       <div className='p-4'>
