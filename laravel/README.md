@@ -7,60 +7,43 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Languages and Tools:
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+<div dir="auto" align="center>
+    <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/c12c95c4176d07da65f0f083d3a7f5b59773e1ed59c61914d16e2f695466e0bc/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6c61726176656c2f6c61726176656c2d706c61696e2e737667"><img src="https://camo.githubusercontent.com/c12c95c4176d07da65f0f083d3a7f5b59773e1ed59c61914d16e2f695466e0bc/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6c61726176656c2f6c61726176656c2d706c61696e2e737667" title="Laravel" alt="Laravel" width="40" height="40" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-plain.svg" style="max-width: 100%;"></a>&nbsp;
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2e24bf255ce01f417e4a25cdac682d8d5e3341eb58283ddff6a11e12531fac19/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f7675656a732f7675656a732d6f726967696e616c2e737667"><img src="https://camo.githubusercontent.com/2e24bf255ce01f417e4a25cdac682d8d5e3341eb58283ddff6a11e12531fac19/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f7675656a732f7675656a732d6f726967696e616c2e737667" title="Vuejs" alt="Vuejs" width="40" height="40" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vuejs/vuejs-original.svg" style="max-width: 100%;"></a>&nbsp;
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/688f61bcdee1f1ff99cff1a917828b9b2ddb8fc0b61b2c9971b5513ea8de4d0c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f7068702f7068702d6f726967696e616c2e737667"><img src="https://camo.githubusercontent.com/688f61bcdee1f1ff99cff1a917828b9b2ddb8fc0b61b2c9971b5513ea8de4d0c/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f7068702f7068702d6f726967696e616c2e737667" title="PHP" alt="PHP" width="40" height="40" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg" style="max-width: 100%;"></a>&nbsp;
+    &nbsp;
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/2c86425b5a9dbb75422b0d977a442726800f3c237435aef0dc9ccfd68ae6322d/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6769742f6769742d6f726967696e616c2d776f72646d61726b2e737667"><img src="https://camo.githubusercontent.com/2c86425b5a9dbb75422b0d977a442726800f3c237435aef0dc9ccfd68ae6322d/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6769742f6769742d6f726967696e616c2d776f72646d61726b2e737667" title="Git" alt="Git" width="40" height="40" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original-wordmark.svg" style="max-width: 100%;"></a>&nbsp;
+  &nbsp;
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/devicons/devicon/blob/master/icons/react/react-original-wordmark.svg"><img src="https://github.com/devicons/devicon/raw/master/icons/react/react-original-wordmark.svg" title="React" alt="React" width="40" height="40" style="max-width: 100%;"></a>&nbsp;
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/devicons/devicon/blob/master/icons/html5/html5-original.svg"><img src="https://github.com/devicons/devicon/raw/master/icons/html5/html5-original.svg" title="HTML5" alt="HTML" width="40" height="40" style="max-width: 100%;"></a>&nbsp;
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/devicons/devicon/blob/master/icons/javascript/javascript-original.svg"><img src="https://github.com/devicons/devicon/raw/master/icons/javascript/javascript-original.svg" title="JavaScript" alt="JavaScript" width="40" height="40" style="max-width: 100%;"></a>&nbsp;
+  <a target="_blank" rel="noopener noreferrer" href="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original-wordmark.svg"><img src="https://github.com/devicons/devicon/raw/master/icons/nodejs/nodejs-original-wordmark.svg" title="NodeJS" alt="NodeJS" width="40" height="40" style="max-width: 100%;"></a>&nbsp;
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/e8a5f4b9b8dd4744587a8107387603fcee2dfae96a34f75a867641bcea088113/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6d7973716c2f6d7973716c2d6f726967696e616c2d776f72646d61726b2e737667"><img src="https://camo.githubusercontent.com/e8a5f4b9b8dd4744587a8107387603fcee2dfae96a34f75a867641bcea088113/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6d7973716c2f6d7973716c2d6f726967696e616c2d776f72646d61726b2e737667" title="Mysql" alt="Mysql" width="40" height="40" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original-wordmark.svg" style="max-width: 100%;"></a>&nbsp;
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/3cd8f2ee26efca52e899325928422e496320ecade6b8ccb8d64326270440152a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f636f6d706f7365722f636f6d706f7365722d6f726967696e616c2e737667"><img src="https://camo.githubusercontent.com/3cd8f2ee26efca52e899325928422e496320ecade6b8ccb8d64326270440152a/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f636f6d706f7365722f636f6d706f7365722d6f726967696e616c2e737667" title="Composer" alt="Composer" width="40" height="40" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/composer/composer-original.svg" style="max-width: 100%;"></a>&nbsp;
+  &nbsp;
+  <a target="_blank" rel="noopener noreferrer nofollow" href="https://camo.githubusercontent.com/ceb1cf84ef4729e7a2f0414c57c47ac8563ed1c43fd10475a5d706f6b0f76896/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6e706d2f6e706d2d6f726967696e616c2d776f72646d61726b2e737667"><img src="https://camo.githubusercontent.com/ceb1cf84ef4729e7a2f0414c57c47ac8563ed1c43fd10475a5d706f6b0f76896/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f64657669636f6e732f64657669636f6e2f69636f6e732f6e706d2f6e706d2d6f726967696e616c2d776f72646d61726b2e737667" title="Git" alt="Git" width="40" height="40" data-canonical-src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" style="max-width: 100%;"></a>&nbsp;
+</div>
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## Versiones  
+<ul>
+    <li> Php artisan 8.83.25</li>
+    <li> Node 16.16.0</li>
+    <li> Php 8.2.12</li>
+    <li> Composer 2.4.1</li>
+    <li> Xampp v3.3.0</li>
+    <li> Laravel 11</li>
+</ul>
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+### Instalación
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+<ol>
+    <li> Clonar el repositorio </li>
+    <li> Creae archivo .env </li>
+    <li> Crear DB formularios </li>
+    <li> Ejecutar php artisan migrate --seed </li>
+    <li> Ejecutar React: npm run dev </li>
+    <li> Ejecutar Artisan: php artisan serve </li>
+</ol>
