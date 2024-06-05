@@ -61,14 +61,15 @@ export default function Dashboard({ auth }) {
       header={<h2 className="font-semibold text-xl text-gray-800 leading-tight">Administrador</h2>}
     >
       <Head title="Dashboard" />
-
       <div className="py-12">
         <div className="max-w-7xl mx-auto sm:px-6 lg:px-8">
           <div className="bg-white overflow-hidden shadow-sm sm:rounded-lg">
             <div className="p-6 text-gray-900">
-              <h3 className="text-2xl font-medium text-gray-900">Listado de Formularios</h3>
-                 {/* Filtros de búsqueda */}
-              {/* <div className="mb-4">
+              <div className="py-4">
+                <h3 className="text-2xl font-bold text-gray-900 pb-8">Lista de Formularios</h3>
+
+                {/* Filtros de búsqueda */}
+              <div className="mb-4">
                 <label htmlFor="fecha" className="block text-sm font-medium text-gray-700">
                   Fecha
                 </label>
@@ -97,30 +98,30 @@ export default function Dashboard({ auth }) {
                 >
                   Buscar
                 </button>
-              </div> */}
-
-                <div className="py-4 max-h-lvh overflow-auto focus:overscroll-contain" >
-                    <ul className='grid grid-cols-4 gap-4 min-[320px]:text-center max-[768px]:grid-cols-1'>
+              </div> 
+                <div className="max-h-lvh overflow-auto focus:overscroll-contain">
+                <ul className='grid grid-cols-4 gap-4 min-[320px]:text-center max-[768px]:grid-cols-1'>
                     {formularios.map((formulario, index) => (
-                        <li className='border-4 rounded-md p-6 border-y-sky-500' key={index}>
-                        <h2 className="text-xl font-medium text-gray-900 text-center">Formulario {formulario.id}</h2>
+                      <li className='group block rounded-lg p-6 bg-blue-50 ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-blue-400 hover:ring-sky-500' key={index}>
+                        <h2 className="h-6 w-6 stroke-sky-500 group-hover:text-white font-semibold">Formulario {formulario.id}</h2>
                         <div className='text-center py-2'>
-                            <p className='text-blue-950 texto-lg'>Fecha de creación:</p>{formulario.fecha}<br />
-                            <p className='text-blue-950 texto-lg '>Contenido</p>
-                            {formulario.actividades ? (
+                          <p className='text-blue-950 texto-lg text-slate-500  group-hover:text-white'>Fecha de creación:</p>{formulario.fecha}<br></br>
+                          <p className='text-blue-950 texto-lg text-slate-500 group-hover:text-white'>Contenido</p>
+                          {formulario.actividades ? (
                             JSON.parse(formulario.actividades).map((actividad, index) => (
-                                <p key={index}>
+                              <p key={index}>
                                 <strong>{actividad.label}:</strong> {actividad.value}
-                                </p>
+                              </p>
                             ))
-                            ) : (
+                          ) : (
                             <p>No hay actividades</p>
-                            )}
+                          )}
                         </div>
-                        </li>
+                      </li>
                     ))}
-                    </ul>
+                </ul>
                 </div>
+              </div>
             </div>
           </div>
         </div>

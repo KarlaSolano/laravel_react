@@ -134,13 +134,13 @@ export default function Dashboard({ auth }) {
                         >
                           Añadir texto
                         </button>
-                        {/* <button
+                         <button
                           type="button"
                           onClick={() => addField('file')}
                           className="ml-4 px-2 py-2 bg-blue-500 text-white rounded"
                         >
                           Añadir campo de archivo
-                        </button> */}
+                        </button>
                       </div>
                     </div>
                   </div>
