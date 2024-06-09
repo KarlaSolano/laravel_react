@@ -37,5 +37,8 @@ Route::middleware('auth:admin')->prefix('admin')->name('admin.')->group(function
     Route::post('/formulario', [FormularioController::class, 'store']);
     Route::get('/formulario', [FormularioController::class, 'index'])->name('formulario.index');
     Route::get('/formulario/list', [FormularioController::class, 'list'])->name('formulario.list');
+    Route::get('/formulario/{id}/edit', [FormularioController::class, 'edit'])->name('formulario.edit');
+    Route::put('/formulario/{id}', [FormularioController::class, 'update'])->name('formulario.update');
+    Route::delete('/formulario/{id}', [FormularioController::class, 'destroy'])->name('formulario.destroy');
 
 require __DIR__.'/auth.php';

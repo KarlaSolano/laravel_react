@@ -79,17 +79,37 @@ class FormularioController extends Controller
     // Método de búsqueda para filtrar formularios por fecha y usuario
     public function search(Request $request){
         $query = Formulario::query();
-
-        if ($request->has('fecha')) {
-            $query->whereDate('fecha', $request->input('fecha'));
+    
+        // Filtrar por fecha que no pase del día actual
+        $query->whereDate('fecha', '<=', Carbon::today());
+    
+        // Filtrar por nombre de usuario
+        if ($request->has('nombre_usuario')) {
+            $query->whereHas('user', function($q) use ($request) {
+                $q->where('name', 'like', '%' . $request->input('nombre_usuario') . '%');
+            });
         }
-
-        if ($request->has('user_id')) {
-            $query->where('user_id', $request->input('user_id'));
+    
+        // Filtrar por si tiene archivo adjunto
+        if ($request->has('tiene_archivo') && $request->input('tiene_archivo')){
+            $query->whereNotNull('archivo');
         }
-
+    
         $formularios = $query->latest()->get();
         return response()->json($formularios);
+    }
+    
+    //Método para eliminar el formulario
+    public function destroy($id)
+    {
+        try {
+            $formulario = Formulario::findOrFail($id);
+            $formulario->delete();
+            return response()->json(['message' => 'Formulario eliminado correctamente']);
+        } catch (\Exception $e) {
+            Log::error('Error al eliminar el formulario:', ['error' => $e->getMessage()]);
+            return response()->json(['error' => 'Ocurrió un error al eliminar el formulario'], 500);
+        }
     }
 
 }
