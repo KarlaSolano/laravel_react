@@ -6,6 +6,7 @@ import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/react/20/solid';
 
 export default function Dashboard({ auth }) {
   const [fields, setFields] = useState([{ id: Date.now(), label: '', value: '', type: 'text' }]);
+  const [archivo, setArchivo] = useState(null); // Estado para almacenar el archivo
   const [formularios, setFormularios] = useState([]);
   const [loading, setLoading] = useState(true); // Estado de carga
   const [error, setError] = useState(null); // Estado de error
@@ -33,14 +34,34 @@ export default function Dashboard({ auth }) {
 
   const handleFieldChange = (id, fieldName, value) => setFields(fields.map(field => field.id === id ? { ...field, [fieldName]: value } : field));
 
-  const handleSubmit = async () => {
-    const actividades = fields.map(field => ({ label: field.label, value: field.value }));
-    const data = { actividades };
+  const handleArchivoChange = (e) => setArchivo(e.target.files[0]); // Manejar cambios en el archivo
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const actividades = fields.map(field => ({ label: field.label, value: field.type === 'file' ? field.value.name : field.value }));
+
+    const formData = new FormData();
+    
+    actividades.forEach((actividad, index) => {
+      formData.append(`actividades[${index}][label]`, actividad.label);
+      formData.append(`actividades[${index}][value]`, actividad.value);
+    });
+
+    // Añadir el archivo al formData
+    if (archivo) {
+      formData.append('archivo', archivo);
+    }
 
     try {
-      const response = await axios.post('/formulario', data); // Asegúrate de que la URL coincida con tu ruta
+      const response = await axios.post('/formulario', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
       setFields([{ id: Date.now(), label: '', value: '', type: 'text' }]);
-
+      setFields([{ id: Date.now(), label: '', value: '', type: 'text' }]);
+      setArchivo(null); // Resetear el archivo después de enviarlo
       
       // Agregar el nuevo formulario a la lista
       setFormularios([...formularios, response.data]);
@@ -82,7 +103,7 @@ export default function Dashboard({ auth }) {
                     {showForm ? 'Ocultar Formulario' : 'Agregar Formulario'}
                   </button>
                   {showForm && (
-                <div id='Form'>
+                <form id='Form' onSubmit={handleSubmit}>
                   <div className='flex flex-wrap'>
                     <div id="field" className="mb-2 border-4 rounded-md p-6 border-gray-500 w-full max-w-xl shadow-lg shadow-cyan-500/50 max-h-52">
                       <div className="max-h-40 overflow-auto focus:overscroll-contain">
@@ -145,13 +166,12 @@ export default function Dashboard({ auth }) {
                     </div>
                   </div>
                   <button
-                    type="button"
-                    onClick={handleSubmit}
+                    type="submit"
                     className="ml-2 px-4 py-2 bg-blue-500 text-white rounded"
                   >
                     Guardar Formulario
                   </button>
-                </div> 
+                </form> 
                 )} 
               </div>
 

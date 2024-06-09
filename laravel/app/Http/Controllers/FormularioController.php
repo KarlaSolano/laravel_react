@@ -35,6 +35,7 @@ class FormularioController extends Controller
             'actividades' => 'required|array',
             'actividades.*.label' => 'required|string',
             'actividades.*.value' => 'required|string',
+            'archivo' => 'nullable|file|mimes:pdf|max:2048', 
         ]);
 
         // Logging para depuración
@@ -58,6 +59,14 @@ class FormularioController extends Controller
             $form = new Formulario();
             $form->fecha = $fecha;
             $form->actividades = json_encode($actividades);
+            
+            if ($request->hasFile('archivo')) {
+                $archivoPdf = $request->file('archivo');
+                $archivoPdfNombre = $archivoPdf->getClientOriginalName();
+                $archivoPdf->storeAs('archivos', $archivoPdfNombre);
+            $form->archivo = $archivoPdfNombre;
+                $form->archivo = $archivoPdfNombre;
+            }
             $form->save();
 
             return redirect()->route('formulario.index')->with('success', 'Formulario creado exitosamente');
