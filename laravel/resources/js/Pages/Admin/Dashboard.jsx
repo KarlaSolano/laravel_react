@@ -8,7 +8,7 @@ export default function Dashboard({ auth }) {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [fecha, setFecha] = useState('');
-  const [userId, setUserId] = useState('');
+  const [nombreUsuario, setNombreUsuario] = useState(''); // Cambio a nombreUsuario en lugar de userId
 
   useEffect(() => {
     cargarFormularios();
@@ -34,8 +34,8 @@ export default function Dashboard({ auth }) {
     try {
       const response = await axios.get('/formulario/search', {
         params: {
-          fecha: fecha,
-          user_id: userId,
+          nombre_usuario: nombreUsuario, // Utilizamos nombreUsuario para la búsqueda
+          fecha: fecha, // También pasamos la fecha como parámetro de búsqueda
         },
       });
       setFormularios(response.data);
@@ -69,38 +69,39 @@ export default function Dashboard({ auth }) {
                 <h3 className="text-2xl font-bold text-gray-900 pb-8">Lista de Formularios</h3>
 
                 {/* Filtros de búsqueda */}
-              <div className="mb-4">
-                <label htmlFor="fecha" className="block text-sm font-medium text-gray-700">
-                  Fecha
-                </label>
-                <input
-                  type="date"
-                  id="fecha"
-                  value={fecha}
-                  onChange={(e) => setFecha(e.target.value)}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                />
-                <label htmlFor="userId" className="block text-sm font-medium text-gray-700 mt-4">
-                  Usuario
-                </label>
-                <input
-                  type="text"
-                  id="userId"
-                  value={userId}
-                  onChange={(e) => setUserId(e.target.value)}
-                  className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
-                  placeholder="ID del Usuario"
-                />
-                <button
-                  type="button"
-                  onClick={buscarFormularios}
-                  className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
-                >
-                  Buscar
-                </button>
-              </div> 
+                <div className="mb-4">
+                  <label htmlFor="nombreUsuario" className="block text-sm font-medium text-gray-700 mt-4">
+                    Nombre del Usuario
+                  </label>
+                  <input
+                    type="text"
+                    id="nombreUsuario"
+                    value={nombreUsuario}
+                    onChange={(e) => setNombreUsuario(e.target.value)}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                    placeholder="Nombre del Usuario"
+                  />
+                  <label htmlFor="fecha" className="block text-sm font-medium text-gray-700 mt-4">
+                    Fecha
+                  </label>
+                  <input
+                    type="date"
+                    id="fecha"
+                    value={fecha}
+                    onChange={(e) => setFecha(e.target.value)}
+                    className="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
+                  />
+                  <button
+                    type="button"
+                    onClick={buscarFormularios}
+                    className="mt-4 px-4 py-2 bg-blue-500 text-white rounded"
+                  >
+                    Buscar
+                  </button>
+                </div>
+
                 <div className="max-h-lvh overflow-auto focus:overscroll-contain">
-                <ul className='grid grid-cols-4 gap-4 min-[320px]:text-center max-[768px]:grid-cols-1'>
+                  <ul className='grid grid-cols-4 gap-4 min-[320px]:text-center max-[768px]:grid-cols-1'>
                     {formularios.map((formulario, index) => (
                       <li className='group block rounded-lg p-6 bg-blue-50 ring-1 ring-slate-900/5 shadow-lg space-y-3 hover:bg-blue-400 hover:ring-sky-500' key={index}>
                         <h2 className="h-6 w-6 stroke-sky-500 group-hover:text-white font-semibold">Formulario {formulario.id}</h2>
@@ -119,7 +120,7 @@ export default function Dashboard({ auth }) {
                         </div>
                       </li>
                     ))}
-                </ul>
+                  </ul>
                 </div>
               </div>
             </div>

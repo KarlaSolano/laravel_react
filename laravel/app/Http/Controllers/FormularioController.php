@@ -77,25 +77,31 @@ class FormularioController extends Controller
     }
 
     // Método de búsqueda para filtrar formularios por fecha y usuario
+    // Controlador con modificaciones
     public function search(Request $request){
         $query = Formulario::query();
-    
+        
         // Filtrar por fecha que no pase del día actual
         $query->whereDate('fecha', '<=', Carbon::today());
-    
+        
         // Filtrar por nombre de usuario
         if ($request->has('nombre_usuario')) {
             $query->whereHas('user', function($q) use ($request) {
                 $q->where('name', 'like', '%' . $request->input('nombre_usuario') . '%');
             });
         }
-    
+        
         // Filtrar por si tiene archivo adjunto
         if ($request->has('tiene_archivo') && $request->input('tiene_archivo')){
             $query->whereNotNull('archivo');
         }
-    
+        
         $formularios = $query->latest()->get();
+        
+        if ($formularios->isEmpty()) {
+            return response()->json(['error' => 'No se encontraron formularios con los criterios de búsqueda proporcionados'], 404);
+        }
+        
         return response()->json($formularios);
     }
     
